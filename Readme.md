@@ -11,3 +11,5 @@ kubectl create -f claim.yaml
 kubectl create -f deployment.yaml
 
 ```
+
+#Use either a certificate or ingress definition
