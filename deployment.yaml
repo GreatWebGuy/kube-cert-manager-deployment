@@ -15,12 +15,7 @@ spec:
     spec:
       containers:
         - name: kube-cert-manager
-          image: gcr.io/staging-176219/kube-cert-manager:0.5.0
-          env:
-          - name: GCE_PROJECT
-            value: production-176219
-          - name: GOOGLE_APPLICATION_CREDENTIALS
-            value: /cred/dnscred-prod.json
+          image: jlcrow/kube-cert-manager:0.5.0
           args:
             - "-data-dir=/var/lib/cert-manager"
             - "-acme-url=https://acme-v01.api.letsencrypt.org/directory"
@@ -31,10 +26,6 @@ spec:
             - name: credentials
               readOnly: true
               mountPath: "/cred"
-      volumes:
-        - name: credentials
-          secret:
-            secretName: dns-credentials
         - name: data
           persistentVolumeClaim:
             claimName: cert-manager-claim

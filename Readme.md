@@ -1,10 +1,9 @@
 #kube cert manager
 Service to manage certificates in kubernetes
 
-## Requires manual deployment with kubectl due to nature of roles needed
+Must integrate with appropriate provider https://github.com/PalmStoneGames/kube-cert-manager/blob/master/docs/providers.md
 
 ```
-kubectl create secret generic dns-credentials --from-file dnscred-prod.json --namespace kube-system
 kubectl create -f rbac.yaml
 kubectl create -f certificate-type.yaml
 kubectl create -f claim.yaml
